@@ -10,6 +10,6 @@ def time_solve():
     print('Recording...')
     i = input('Enter the enter button to stop timer: ')
     stop = time.time()
-    time = stop - start
-    return time
+    solve_time = stop - start
+    return solve_time
 
