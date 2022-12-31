@@ -11,5 +11,5 @@ def time_solve():
     i = input('Enter the enter button to stop timer: ')
     stop = time.time()
     solve_time = stop - start
-    return solve_time
+    return round(solve_time, 3)
 

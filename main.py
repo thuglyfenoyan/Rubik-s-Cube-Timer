@@ -4,6 +4,7 @@ import funcs
 
 
 if __name__ == '__main__':
-    pass
+    for i in range(15):
+        funcs.record_2x2()
 
 
