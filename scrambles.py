@@ -38,3 +38,22 @@ def scramble_3x3():                           # 20 moves long
             shuffle.append(random_move)
     return shuffle
 
+
+def scramble_4x4():                           # 40 moves long
+    shuffle = list()
+    moves = [
+                'R', 'R\'', 'R2', 'Rw', 'Rw\'', 'Rw2',
+                'L', 'L\'', 'L2',
+                'U', 'U\'', 'U2', 'Uw', 'Uw\'', 'Uw2',
+                'D', 'D\'', 'D2',
+                'F', 'F\'', 'F2', 'Fw', 'Fw\'', 'Fw2',
+                'B', 'B\'', 'B2'
+            ]
+
+    shuffle.append(random.choice(moves))
+    while len(shuffle) < 40:
+        random_move = random.choice(moves)
+        if random_move[0] != shuffle[-1][0]:
+            shuffle.append(random_move)
+    return shuffle
+

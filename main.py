@@ -1,10 +1,12 @@
-from scrambles import scramble_2x2, scramble_3x3
-from cube_timer import time_solve
+# Author:           Fawaaz Kamali Siddiqui
+# Last Update:      31-December-2022
+
+import scrambles
+import cube_timer
 import funcs
 
 
 if __name__ == '__main__':
-    for i in range(15):
-        funcs.record_2x2()
+    funcs.print_list(scrambles.scramble_4x4())
 
 
