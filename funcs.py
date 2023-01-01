@@ -71,3 +71,45 @@ def record_2x2():
     print('*******************************************')    # separators for each solve
 
 
+def record_3x3():
+    global times_3x3, scrambles_3x3, avg5_3x3, avg12_3x3
+    shuffle = scrambles.scramble_3x3()
+    print_list(shuffle)
+    time_taken = time_solve()
+    # record data
+    scrambles_3x3.append(shuffle)
+    times_3x3.append(time_taken)
+    avg5 = 'n/a'
+    avg12 = 'n/a'
+    if len(times_3x3) >= 5:
+        avg5 = calc_avg5(times_3x3)
+        avg5_3x3.append(avg5)
+        if len(times_3x3) >= 12:
+            avg12 = calc_avg12(times_3x3)
+            avg12_3x3.append(avg12)
+    # display data
+    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', avg5, 'Average of 12:', avg12))
+    print('*******************************************')    # separators for each solve
+
+
+def record_4x4():
+    global times_4x4, scrambles_4x4, avg5_4x4, avg12_4x4
+    shuffle = scrambles.scramble_4x4()
+    print_list(shuffle)
+    time_taken = time_solve()
+    # record data
+    scrambles_4x4.append(shuffle)
+    times_4x4.append(time_taken)
+    avg5 = 'n/a'
+    avg12 = 'n/a'
+    if len(times_4x4) >= 5:
+        avg5 = calc_avg5(times_4x4)
+        avg5_4x4.append(avg5)
+        if len(times_4x4) >= 12:
+            avg12 = calc_avg12(times_4x4)
+            avg12_4x4.append(avg12)
+    # display data
+    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', avg5, 'Average of 12:', avg12))
+    print('*******************************************')    # separators for each solve
+
+

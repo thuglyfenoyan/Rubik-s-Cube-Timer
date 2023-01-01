@@ -7,6 +7,11 @@ import funcs
 
 
 if __name__ == '__main__':
-    funcs.print_list(scrambles.scramble_4x4())
+    for i in range(5):
+        funcs.record_2x2()
+    for i in range(5):
+        funcs.record_3x3()
+    for i in range(5):
+        funcs.record_4x4()
 
 
