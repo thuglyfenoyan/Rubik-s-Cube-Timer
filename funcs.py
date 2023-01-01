@@ -113,3 +113,24 @@ def record_4x4():
     print('*******************************************')    # separators for each solve
 
 
+def record_5x5():
+    global times_5x5, scrambles_5x5, avg5_5x5, avg12_5x5
+    shuffle = scrambles.scramble_5x5()
+    print_list(shuffle)
+    time_taken = time_solve()
+    # record data
+    scrambles_5x5.append(shuffle)
+    times_5x5.append(time_taken)
+    avg5 = 'n/a'
+    avg12 = 'n/a'
+    if len(times_5x5) >= 5:
+        avg5 = calc_avg5(times_5x5)
+        avg5_5x5.append(avg5)
+        if len(times_5x5) >= 12:
+            avg12 = calc_avg12(times_5x5)
+            avg12_5x5.append(avg12)
+    # display data
+    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', avg5, 'Average of 12:', avg12))
+    print('*******************************************')    # separators for each solve
+
+
