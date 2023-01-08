@@ -63,6 +63,50 @@ def statistics():
                 print(f'Best ao12:        {min(avg12_2x2)}        ', end='')
                 print_list(times_2x2[avg12_2x2.index(min(avg12_2x2)):avg12_2x2.index(min(avg12_2x2)) + 12])
 
+    if len(times_3x3) >= 1:
+        print('******************** 3x3 ********************')
+        print(f'Best Solve:      {min(times_3x3)}       ', end='')
+        print_list(scrambles_3x3[times_3x3.index(min(times_3x3))])
+        if len(times_3x3) >= 5:
+            print(f'Best ao5:        {min(avg5_3x3)}        ', end='')
+            print_list(times_3x3[avg5_3x3.index(min(avg5_3x3)):avg5_3x3.index(min(avg5_3x3))+5])
+            if len(times_3x3) >= 12:
+                print(f'Best ao12:        {min(avg12_3x3)}        ', end='')
+                print_list(times_3x3[avg12_3x3.index(min(avg12_3x3)):avg12_3x3.index(min(avg12_3x3)) + 12])
+
+    if len(times_4x4) >= 1:
+        print('******************** 4x4 ********************')
+        print(f'Best Solve:      {min(times_4x4)}       ', end='')
+        print_list(scrambles_4x4[times_4x4.index(min(times_4x4))])
+        if len(times_4x4) >= 5:
+            print(f'Best ao5:        {min(avg5_4x4)}        ', end='')
+            print_list(times_4x4[avg5_4x4.index(min(avg5_4x4)):avg5_4x4.index(min(avg5_4x4))+5])
+            if len(times_4x4) >= 12:
+                print(f'Best ao12:        {min(avg12_4x4)}        ', end='')
+                print_list(times_4x4[avg12_4x4.index(min(avg12_4x4)):avg12_4x4.index(min(avg12_4x4)) + 12])
+
+    if len(times_5x5) >= 1:
+        print('******************** 5x5 ********************')
+        print(f'Best Solve:      {min(times_5x5)}       ', end='')
+        print_list(scrambles_5x5[times_5x5.index(min(times_5x5))])
+        if len(times_5x5) >= 5:
+            print(f'Best ao5:        {min(avg5_5x5)}        ', end='')
+            print_list(times_5x5[avg5_5x5.index(min(avg5_5x5)):avg5_5x5.index(min(avg5_5x5))+5])
+            if len(times_5x5) >= 12:
+                print(f'Best ao12:        {min(avg12_5x5)}        ', end='')
+                print_list(times_5x5[avg12_5x5.index(min(avg12_5x5)):avg12_5x5.index(min(avg12_5x5)) + 12])
+
+    if len(times_6x6) >= 1:
+        print('******************** 6x6 ********************')
+        print(f'Best Solve:      {min(times_6x6)}       ', end='')
+        print_list(scrambles_6x6[times_6x6.index(min(times_6x6))])
+        if len(times_6x6) >= 5:
+            print(f'Best ao5:        {min(avg5_6x6)}        ', end='')
+            print_list(times_6x6[avg5_6x6.index(min(avg5_6x6)):avg5_6x6.index(min(avg5_6x6))+5])
+            if len(times_6x6) >= 12:
+                print(f'Best ao12:        {min(avg12_6x6)}        ', end='')
+                print_list(times_6x6[avg12_6x6.index(min(avg12_6x6)):avg12_6x6.index(min(avg12_6x6)) + 12])
+
 
 def record_2x2():
     global times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2
