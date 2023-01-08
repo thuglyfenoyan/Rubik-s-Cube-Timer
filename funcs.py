@@ -50,6 +50,20 @@ def calc_avg12(lst):    # the best and worst solves are excluded from calculatin
     return round(avg, 3)
 
 
+def statistics():
+    # TODO: Display PB, Best avg5 and best avg12 of each puzzle
+    if len(times_2x2) >= 1:
+        print('******************** 2x2 ********************')
+        print(f'Best Solve:      {min(times_2x2)}       ', end='')
+        print_list(scrambles_2x2[times_2x2.index(min(times_2x2))])
+        if len(times_2x2) >= 5:
+            print(f'Best ao5:        {min(avg5_2x2)}        ', end='')
+            print_list(times_2x2[avg5_2x2.index(min(avg5_2x2)):avg5_2x2.index(min(avg5_2x2))+5])
+            if len(times_2x2) >= 12:
+                print(f'Best ao12:        {min(avg12_2x2)}        ', end='')
+                print_list(times_2x2[avg12_2x2.index(min(avg12_2x2)):avg12_2x2.index(min(avg12_2x2)) + 12])
+
+
 def record_2x2():
     global times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2
     shuffle = scrambles.scramble_2x2()
