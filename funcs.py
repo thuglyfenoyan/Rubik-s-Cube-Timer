@@ -5,27 +5,7 @@ from cube_timer import time_solve
 import scrambles
 
 
-# variable declaration section
-times_2x2 = []
-times_3x3 = []
-times_4x4 = []
-times_5x5 = []
-times_6x6 = []
-scrambles_2x2 = []
-scrambles_3x3 = []
-scrambles_4x4 = []
-scrambles_5x5 = []
-scrambles_6x6 = []
-avg5_2x2 = []       # keep track of best averages in a session and its occurrence
-avg5_3x3 = []
-avg5_4x4 = []
-avg5_5x5 = []
-avg5_6x6 = []
-avg12_2x2 = []
-avg12_3x3 = []
-avg12_4x4 = []
-avg12_5x5 = []
-avg12_6x6 = []
+
 
 
 def print_list(lst):
@@ -130,6 +110,26 @@ def history(puzzle):
         for i in range(len(times_6x6)):
             print('%-10d %-10.3f' % (i+1, times_5x5[i]), end='')
             print_list(scrambles_6x6[i])
+
+
+def record_solve(times, scramble_list, scramble_func, avg5, avg12):
+    shuffle = scramble_func
+    print_list(shuffle)
+    time_taken = time_solve()
+    # record data
+    scramble_list.append(shuffle)
+    times.append(time_taken)
+    current_avg5 = 'n/a'
+    current_avg12 = 'n/a'
+    if len(times) >= 5:
+        current_avg5 = calc_avg5(times)
+        avg5.append(current_avg5)
+        if len(times) >= 12:
+            current_avg12 = calc_avg12(times)
+            avg12.append(current_avg12)
+    # display data
+    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', current_avg5, 'Average of 12:', current_avg12))
+    print('*******************************************')  # separators for each solve
 
 
 def record_2x2():
