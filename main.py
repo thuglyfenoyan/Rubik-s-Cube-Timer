@@ -31,10 +31,14 @@ avg12_6x6 = []
 
 if __name__ == '__main__':
 
-    for i in range(5):
+    for i in range(7):
         funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
-    funcs.print_list(times_2x2)
-    funcs.print_list(scrambles_2x2)
-    funcs.print_list(avg5_2x2)
-    funcs.print_list(avg12_2x2)
 
+    for i in range(7):
+        funcs.record_solve(times_3x3, scrambles_3x3, scrambles.scramble_3x3(), avg5_3x3, avg12_3x3)
+
+    variable = int(input('Enter 1 or 2: '))
+    if variable == 1:
+        funcs.history(times_2x2, scrambles_2x2)
+    elif variable == 2:
+        funcs.history(times_3x3, scrambles_3x3)

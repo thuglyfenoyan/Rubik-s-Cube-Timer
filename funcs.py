@@ -88,28 +88,35 @@ def statistics():
                 print_list(times_6x6[avg12_6x6.index(min(avg12_6x6)):avg12_6x6.index(min(avg12_6x6)) + 12])
 
 
-def history(puzzle):
+def history(times, scramble_list):
     print('%-10s %-10s%s' % ('Solve No.', 'Time', 'Scramble'))
-    if puzzle == '2x2':
-        for i in range(len(times_2x2)):
-            print('%-10d %-10.3f' % (i+1, times_2x2[i]), end='')
-            print_list(scrambles_2x2[i])
-    elif puzzle == '3x3':
-        for i in range(len(times_3x3)):
-            print('%-10d %-10.3f' % (i+1, times_3x3[i]), end='')
-            print_list(scrambles_3x3[i])
-    elif puzzle == '4x4':
-        for i in range(len(times_4x4)):
-            print('%-10d %-10.3f' % (i+1, times_4x4[i]), end='')
-            print_list(scrambles_4x4[i])
-    elif puzzle == '5x5':
-        for i in range(len(times_5x5)):
-            print('%-10d %-10.3f' % (i+1, times_5x5[i]), end='')
-            print_list(scrambles_5x5[i])
-    elif puzzle == '6x6':
-        for i in range(len(times_6x6)):
-            print('%-10d %-10.3f' % (i+1, times_5x5[i]), end='')
-            print_list(scrambles_6x6[i])
+    for i in range(len(times)):
+        print('%-10d %-10.3f' % (i + 1, times[i]), end='')
+        print_list(scramble_list[i])
+
+
+# def history(puzzle):
+#     print('%-10s %-10s%s' % ('Solve No.', 'Time', 'Scramble'))
+#     if puzzle == '2x2':
+#         for i in range(len(times_2x2)):
+#             print('%-10d %-10.3f' % (i+1, times_2x2[i]), end='')
+#             print_list(scrambles_2x2[i])
+#     elif puzzle == '3x3':
+#         for i in range(len(times_3x3)):
+#             print('%-10d %-10.3f' % (i+1, times_3x3[i]), end='')
+#             print_list(scrambles_3x3[i])
+#     elif puzzle == '4x4':
+#         for i in range(len(times_4x4)):
+#             print('%-10d %-10.3f' % (i+1, times_4x4[i]), end='')
+#             print_list(scrambles_4x4[i])
+#     elif puzzle == '5x5':
+#         for i in range(len(times_5x5)):
+#             print('%-10d %-10.3f' % (i+1, times_5x5[i]), end='')
+#             print_list(scrambles_5x5[i])
+#     elif puzzle == '6x6':
+#         for i in range(len(times_6x6)):
+#             print('%-10d %-10.3f' % (i+1, times_5x5[i]), end='')
+#             print_list(scrambles_6x6[i])
 
 
 def record_solve(times, scramble_list, scramble_func, avg5, avg12):
