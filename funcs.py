@@ -12,13 +12,13 @@ def print_list(lst):
     print()  # newline
 
 
-def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if possible
+def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if need be
     if time < 60:
         return time
     elif 60 <= time < 3600:
         mins = int(time // 60)
         seconds = round(time % 60, round_to)
-        return f'%d:%.{round_to}f' % (mins, seconds)
+        return f'%d:%ds.{round_to}f' % (mins, seconds)
     else:
         return str(datetime.timedelta(seconds=time))
 
@@ -52,7 +52,6 @@ def statistics(times, scramble_list, avg5, avg12):
 
 
 # def statistics():
-#     # TODO: Display PB, Best avg5 and best avg12 of each puzzle
 #     if len(times_2x2) >= 1:
 #         print('******************** 2x2 ********************')
 #         print(f'Best Solve:      {min(times_2x2)}       ', end='')
@@ -156,8 +155,13 @@ def record_solve(times, scramble_list, scramble_func, avg5, avg12):
             current_avg12 = calc_avg12(times)
             avg12.append(current_avg12)
     # display data
-    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', current_avg5, 'Average of 12:', current_avg12))
+    print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', to_mins(time_taken), 'Average of 5:', current_avg5, 'Average of 12:', current_avg12))
     print('*******************************************')  # separators for each solve
+
+
+def del_solve(index, times, scramble_list, scramble_func, avg5, avg12):
+    # TODO: Pop solve from times and scrambles and update average lists
+    pass
 
 
 def record_2x2():

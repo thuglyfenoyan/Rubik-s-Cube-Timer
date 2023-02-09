@@ -1,8 +1,8 @@
 # Author:           Fawaaz Kamali Siddiqui
-# Last Update:      08-January-2023
+# Last Update:      28-January-2023
+
 
 import scrambles
-import cube_timer
 import funcs
 import os
 
@@ -31,7 +31,7 @@ avg12_6x6 = []
 
 if __name__ == '__main__':
 
-    for i in range(5):
+    for i in range(1):
         funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
 
     os.system('clear')
