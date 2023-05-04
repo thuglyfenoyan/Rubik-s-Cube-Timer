@@ -1,5 +1,5 @@
 # Author:           Fawaaz Kamali Siddiqui
-# Last Update:      28-January-2023
+# Last Update:      03-May-2023
 
 
 import scrambles
@@ -31,8 +31,14 @@ avg12_6x6 = []
 
 if __name__ == '__main__':
 
-    for i in range(1):
+    for i in range(8):
         funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
 
-    os.system('clear')
-    funcs.statistics(times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2)
+    funcs.history(times_2x2, scrambles_2x2)
+    funcs.print_list(avg5_2x2)
+    deletion = int(input('Enter the solve number you want to remove: '))
+    funcs.del_solve(times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2, deletion)
+
+    funcs.history(times_2x2, scrambles_2x2)
+    funcs.print_list(avg5_2x2)
+

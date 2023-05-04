@@ -12,7 +12,7 @@ def print_list(lst):
     print()  # newline
 
 
-def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if need be
+def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if required
     if time < 60:
         return time
     elif 60 <= time < 3600:
@@ -23,7 +23,7 @@ def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if 
         return str(datetime.timedelta(seconds=time))
 
 
-def calc_avg5(lst):     # the best and worst solves are excluded from calculating average
+def calc_avg5(lst):     # the best and worst solves are excluded when calculating average
     avg = 'n/a'
     if len(lst) >= 5:
         prev5 = lst[len(lst) - 5:]
@@ -31,7 +31,7 @@ def calc_avg5(lst):     # the best and worst solves are excluded from calculatin
     return round(avg, 3)
 
 
-def calc_avg12(lst):    # the best and worst solves are excluded from calculating average
+def calc_avg12(lst):    # the best and worst solves are excluded when calculating average
     avg = 'n/a'
     if len(lst) >= 12:
         prev12 = lst[len(lst)-12:]
@@ -108,7 +108,7 @@ def statistics(times, scramble_list, avg5, avg12):
 #                 print_list(times_6x6[avg12_6x6.index(min(avg12_6x6)):avg12_6x6.index(min(avg12_6x6)) + 12])
 
 
-def history(times, scramble_list):
+def history(times, scramble_list):  # history of ALL solves of a specific puzzle
     print('%-10s %-10s%s' % ('Solve No.', 'Time', 'Scramble'))
     for i in range(len(times)):
         print('%-10d %-10.3f' % (i + 1, times[i]), end='')
@@ -159,11 +159,23 @@ def record_solve(times, scramble_list, scramble_func, avg5, avg12):
     print('*******************************************')  # separators for each solve
 
 
-def del_solve(index, times, scramble_list, scramble_func, avg5, avg12):
+def del_solve(times, scramble_list, avg5, avg12, index):
     # TODO: Pop solve from times and scrambles and update average lists
-    pass
+    times.pop(index-1)
+    scramble_list.pop(index-1)
+
+    # update average lists after deletion
+    if len(times) >= 5:
+        avg5.pop(0)
+        for i in range(len(avg5)):
+            avg5[i] = calc_avg5(times[i:i+5])   
+            if len(times) >= 12:
+                avg12.pop(0)
+                for j in range(len(avg12)):
+                    avg12[j] = calc_avg12(times[i:i+12])
 
 
+'''
 def record_2x2():
     global times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2
     shuffle = scrambles.scramble_2x2()
@@ -267,5 +279,6 @@ def record_6x6():
     # display data
     print('%s %-10s%s %-10s%s %-10s' % ('Time Taken:', time_taken, 'Average of 5:', avg5, 'Average of 12:', avg12))
     print('*******************************************')    # separators for each solve
+'''
 
 
