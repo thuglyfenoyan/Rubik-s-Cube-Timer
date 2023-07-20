@@ -31,8 +31,8 @@ avg12_6x6 = []
 
 if __name__ == '__main__':
 
-    cube_2x2 = Puzzle(scrambles.scramble_2x2(), times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2)
-    cube_3x3 = Puzzle(scrambles.scramble_3x3(), times_3x3, scrambles_3x3, avg5_3x3, avg12_3x3)
+    cube_2x2 = Puzzle('2x2', times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2)
+    cube_3x3 = Puzzle('3x3', times_3x3, scrambles_3x3, avg5_3x3, avg12_3x3)
     for i in range(3):
         cube_2x2.record_solve()
     cube_2x2.history()

@@ -6,15 +6,15 @@ from funcs import print_list, to_mins, calc_avg5, calc_avg12, get_shuffle
 
 class Puzzle:
 
-    def __init__(self, scramble_func, times, scramble_list, avg5, avg12):
-        self.scramble_func = scramble_func     # determining which cube scramble will be displayed
+    def __init__(self, puzzle_type, times, scramble_list, avg5, avg12):
+        self.puzzle_type = puzzle_type          # determining which cube scramble will be displayed
         self.times = times                      # keeping track of all times for a puzzle
         self.scramble_list = scramble_list      # keeping track of all scrambles for a puzzle
         self.avg5 = avg5                        # keeping track of all averages for a puzzle
         self.avg12 = avg12
 
     def record_solve(self):
-        shuffle = self.scramble_func
+        shuffle = scrambles.scramble(self.puzzle_type)
         print_list(shuffle)
         time_taken = time_solve()
         # record data
