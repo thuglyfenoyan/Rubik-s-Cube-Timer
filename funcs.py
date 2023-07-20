@@ -51,6 +51,12 @@ def statistics(times, scramble_list, avg5, avg12):
                 print_list(times[avg12.index(min(avg12)):avg12.index(min(avg12)) + 12])
 
 
+def get_shuffle(puzzle_type):
+    shuffle = puzzle_type
+    print_list(shuffle)
+
+
+
 # def statistics():
 #     if len(times_2x2) >= 1:
 #         print('******************** 2x2 ********************')

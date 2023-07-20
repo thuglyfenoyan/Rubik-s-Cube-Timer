@@ -1,7 +1,7 @@
 # Author:           Fawaaz Kamali Siddiqui
-# Last Update:      03-May-2023
+# Last Update:      20-July-2023
 
-
+from Puzzles import Puzzle
 import scrambles
 import funcs
 import os
@@ -31,14 +31,25 @@ avg12_6x6 = []
 
 if __name__ == '__main__':
 
-    for i in range(8):
-        funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
+    cube_2x2 = Puzzle(scrambles.scramble_2x2(), times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2)
+    cube_3x3 = Puzzle(scrambles.scramble_3x3(), times_3x3, scrambles_3x3, avg5_3x3, avg12_3x3)
+    for i in range(3):
+        cube_2x2.record_solve()
+    cube_2x2.history()
+    cube_2x2.statistics()
 
-    funcs.history(times_2x2, scrambles_2x2)
-    funcs.print_list(avg5_2x2)
-    deletion = int(input('Enter the solve number you want to remove: '))
-    funcs.del_solve(times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2, deletion)
-
-    funcs.history(times_2x2, scrambles_2x2)
-    funcs.print_list(avg5_2x2)
+    for i in range(3):
+        cube_3x3.record_solve()
+    cube_3x3.history()
+    cube_3x3.statistics()
+    # for i in range(8):
+    #     funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
+    #
+    # funcs.history(times_2x2, scrambles_2x2)
+    # funcs.print_list(avg5_2x2)
+    # deletion = int(input('Enter the solve number you want to remove: '))
+    # funcs.del_solve(times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2, deletion)
+    #
+    # funcs.history(times_2x2, scrambles_2x2)
+    # funcs.print_list(avg5_2x2)
 
