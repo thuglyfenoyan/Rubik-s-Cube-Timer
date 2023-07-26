@@ -1,5 +1,6 @@
 from cube_timer import time_solve
 import scrambles
+import os
 import datetime
 from funcs import print_list, to_mins, calc_avg5, calc_avg12, get_shuffle
 
@@ -49,6 +50,7 @@ class Puzzle:
                         self.avg12[j] = calc_avg12(self.times[i:i + 12])
 
     def history(self):  # displays ALL solves and scrambles for the puzzle
+        os.system('cls')
         print('%-10s %-10s%s' % ('Solve No.', 'Time', 'Scramble'))
         for i in range(len(self.times)):
             print('%-10d %-10.3f' % (i + 1, self.times[i]), end='')
@@ -64,5 +66,8 @@ class Puzzle:
                 if len(self.times) >= 12:
                     print('%-20s %-10s' % ('Best a012:', to_mins(min(self.avg12))), end='')
                     print_list(self.times[self.avg12.index(min(self.avg12)):self.avg12.index(min(self.avg12)) + 12])
+
+    def get_puzzle_type(self):
+        return self.puzzle_type
 
 

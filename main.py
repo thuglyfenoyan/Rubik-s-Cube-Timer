@@ -1,5 +1,5 @@
 # Author:           Fawaaz Kamali Siddiqui
-# Last Update:      25-July-2023
+# Last Update:      26-July-2023
 
 from Puzzles import Puzzle
 import scrambles
@@ -45,32 +45,77 @@ PUZZLE_OPTIONS = {
     "5": cube_6x6
 }
 
+
+# Function for getting user input from main menu
+def get_menu():
+
+    # TODO: Add menu for all puzzles and statistics menu
+    valid_entries = ['1', '2', '3', '4', '5', '6', '7']  # possible valid entries
+    while True:
+        os.system('cls')  # clear terminal window
+        mode = input('''Enter a number to choose function:
+1. 2x2
+2. 3x3
+3. 4x4
+4. 5x5
+5. 6x6
+6. Statistics
+7. Logout
+> ''')
+        if mode in valid_entries:
+            return mode
+
+
+def puzzle_options(puzzle_object):
+
+    # TODO: Add features for recording solves and checking history
+    valid_entries = ['1', '2', 'g', '\'g\'']
+    while True:
+        os.system('cls')  # clear terminal window
+        print(f'Current Puzzle: {puzzle_object.get_puzzle_type()}')
+        mode = input('''Enter one of the following options:
+1. Resume Current Session
+2. History
+Enter \'g\' to go back
+> ''')
+        if mode.lower() in valid_entries:
+            return mode
+
+
+class BreakMatch:
+    pass
+
+
 if __name__ == '__main__':
 
-    for i in range(3):
-        n = input('What puzzle mode do you want: ')
-        if n in PUZZLE_OPTIONS:
-            puzzle = PUZZLE_OPTIONS[n]
-            for j in range(2):
-                puzzle.record_solve()
-            puzzle.history()
-            puzzle.statistics()
-        else:
-            print('Not available')
+    mode = 0
+    while mode != '7':  # while logout is not entered
+        mode = get_menu()
+        match mode:
+            case '1' | '2' | '3' | '4' | '5':
+                # TODO: Implement feature to remain in current state after recording solves
+                puzzle = PUZZLE_OPTIONS[mode]
+                function = puzzle_options(puzzle)  # displays puzzle menu
+                match function:
+                    case '1':  # record normal solves
+                        # TODO: Implement feature to exit current state
+                        for i in range(3):
+                            puzzle.record_solve()
+                    case '2':  # display puzzle history
+                        # TODO: Implement del_solve() feature
+                        puzzle.history()
+                        foo = ''
+                        while foo.lower() != 'g':
+                            foo = input('Enter \'g\' to go back: ')
+                    case _:     # going back to main menu
+                        pass
+            case '6':
+                # TODO: Implement feature to exit current state
+                for i in PUZZLE_OPTIONS:
+                    print(f'********** {PUZZLE_OPTIONS[i].get_puzzle_type()} **********')
+                    PUZZLE_OPTIONS[i].statistics()
+            case '7':
+                pass
 
 
-    # for i in range(3):
-    #     cube_3x3.record_solve()
-    # cube_3x3.history()
-    # cube_3x3.statistics()
-    # for i in range(8):
-    #     funcs.record_solve(times_2x2, scrambles_2x2, scrambles.scramble_2x2(), avg5_2x2, avg12_2x2)
-    #
-    # funcs.history(times_2x2, scrambles_2x2)
-    # funcs.print_list(avg5_2x2)
-    # deletion = int(input('Enter the solve number you want to remove: '))
-    # funcs.del_solve(times_2x2, scrambles_2x2, avg5_2x2, avg12_2x2, deletion)
-    #
-    # funcs.history(times_2x2, scrambles_2x2)
-    # funcs.print_list(avg5_2x2)
 
