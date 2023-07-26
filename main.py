@@ -92,27 +92,34 @@ if __name__ == '__main__':
     while mode != '7':  # while logout is not entered
         mode = get_menu()
         match mode:
+
+            # puzzle solve mode
             case '1' | '2' | '3' | '4' | '5':
                 # TODO: Implement feature to remain in current state after recording solves
                 puzzle = PUZZLE_OPTIONS[mode]
                 function = puzzle_options(puzzle)  # displays puzzle menu
                 match function:
                     case '1':  # record normal solves
-                        # TODO: Implement feature to exit current state
                         puzzle.record_solve()
                     case '2':  # display puzzle history
                         # TODO: Implement del_solve() feature
                         puzzle.history()
                         foo = ''
-                        while foo.lower() != 'g':
+                        while foo.lower() not in ['g', '\'g\'']:
                             foo = input('Enter \'g\' to go back: ')
                     case _:     # going back to main menu
                         pass
+
+            # statistics menu
             case '6':
-                # TODO: Implement feature to exit current state
                 for i in PUZZLE_OPTIONS:
                     print(f'********** {PUZZLE_OPTIONS[i].get_puzzle_type()} **********')
                     PUZZLE_OPTIONS[i].statistics()
+                foo = ''
+                while foo.lower() not in ['g', '\'g\'']:
+                    foo = input('Enter \'g\' to go back: ')
+
+            # logging out
             case '7':
                 pass
 
