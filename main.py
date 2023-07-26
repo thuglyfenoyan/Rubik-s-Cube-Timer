@@ -95,20 +95,24 @@ if __name__ == '__main__':
 
             # puzzle solve mode
             case '1' | '2' | '3' | '4' | '5':
-                # TODO: Implement feature to remain in current state after recording solves
                 puzzle = PUZZLE_OPTIONS[mode]
-                function = puzzle_options(puzzle)  # displays puzzle menu
-                match function:
-                    case '1':  # record normal solves
-                        puzzle.record_solve()
-                    case '2':  # display puzzle history
-                        # TODO: Implement del_solve() feature
-                        puzzle.history()
-                        foo = ''
-                        while foo.lower() not in ['g', '\'g\'']:
-                            foo = input('Enter \'g\' to go back: ')
-                    case _:     # going back to main menu
-                        pass
+                function = ''
+                while function.lower() not in ['g', '\'g\'']:
+                    function = puzzle_options(puzzle)  # displays puzzle menu
+
+                    match function:
+                        case '1':  # record normal solves
+                            while True:
+                                if puzzle.record_solve() == -1:  # user wants to quit session
+                                    break
+                        case '2':  # display puzzle history
+                            # TODO: Implement del_solve() feature
+                            puzzle.history()
+                            foo = ''
+                            while foo.lower() not in ['g', '\'g\'']:
+                                foo = input('Enter \'g\' to go back: ')  # go back to puzzle menu
+                        case _:     # going back to main menu
+                            pass
 
             # statistics menu
             case '6':

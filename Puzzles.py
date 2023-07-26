@@ -19,7 +19,7 @@ class Puzzle:
         print_list(shuffle)
         time_taken = time_solve()
         if time_taken == -1:    # user wants to quit
-            return
+            return -1
         # record data
         self.scramble_list.append(shuffle)
         self.times.append(time_taken)
