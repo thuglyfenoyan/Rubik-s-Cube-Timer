@@ -37,9 +37,13 @@ class Puzzle:
         print('*******************************************')  # separators for each solve
 
     def del_solve(self, index):
-        # TODO: Pop solve from times and scrambles and update average lists
-        self.times.pop(index - 1)
-        self.scramble_list.pop(index - 1)
+        # pop solve from times and scrambles and update average lists
+        if 0 < int(index) <= len(self.times):
+            self.times.pop(index - 1)
+            self.scramble_list.pop(index - 1)
+        else:
+            print('Solve number not found.')
+            return
 
         # update average lists after deletion
         if len(self.times) >= 5:

@@ -3,7 +3,7 @@
 
 from Puzzles import Puzzle
 import scrambles
-import funcs
+from funcs import input_num
 import os
 
 
@@ -106,11 +106,15 @@ if __name__ == '__main__':
                                 if puzzle.record_solve() == -1:  # user wants to quit session
                                     break
                         case '2':  # display puzzle history
-                            # TODO: Implement del_solve() feature
                             puzzle.history()
                             foo = ''
                             while foo.lower() not in ['g', '\'g\'']:
-                                foo = input('Enter \'g\' to go back: ')  # go back to puzzle menu
+                                print('Enter \'g\' to go back, enter \'d\' to delete solves: ')
+                                foo = input('> ')
+
+                                if foo.lower() in ['d', '\'d\'']:
+                                    to_delete = input_num('Enter the solve no. you want to delete: ')
+                                    puzzle.del_solve(to_delete)     # solve number is 1-indexed unlike lists
                         case _:     # going back to main menu
                             pass
 
@@ -126,6 +130,3 @@ if __name__ == '__main__':
             # logging out
             case '7':
                 pass
-
-
-

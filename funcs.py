@@ -23,6 +23,16 @@ def to_mins(time, round_to=3):  # convert seconds to either minutes or hours if 
         return str(datetime.timedelta(seconds=time))
 
 
+def input_num(prompt):  # Validating input from user. Used in main menu
+    num = 0
+    while True:
+        try:
+            num = int(input(prompt))
+            return num
+        except:
+            print('Invalid Input.')
+
+
 def calc_avg5(lst):     # the best and worst solves are excluded when calculating average
     avg = 'n/a'
     if len(lst) >= 5:
