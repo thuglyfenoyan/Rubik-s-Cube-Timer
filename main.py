@@ -99,8 +99,7 @@ if __name__ == '__main__':
                 match function:
                     case '1':  # record normal solves
                         # TODO: Implement feature to exit current state
-                        for i in range(3):
-                            puzzle.record_solve()
+                        puzzle.record_solve()
                     case '2':  # display puzzle history
                         # TODO: Implement del_solve() feature
                         puzzle.history()

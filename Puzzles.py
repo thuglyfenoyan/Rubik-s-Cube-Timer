@@ -18,6 +18,8 @@ class Puzzle:
         shuffle = scrambles.scramble(self.puzzle_type)
         print_list(shuffle)
         time_taken = time_solve()
+        if time_taken == -1:    # user wants to quit
+            return
         # record data
         self.scramble_list.append(shuffle)
         self.times.append(time_taken)

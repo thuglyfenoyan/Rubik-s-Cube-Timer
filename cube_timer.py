@@ -28,17 +28,22 @@ def time_solve():
     #         end = time.time()
     #         break
 
-    to_press = [13, 32]
+    to_press = [13, 32]  # order number for enter and space bar
+    print('Enter \'g\' to go back: ')
     print('Press either the space bar or enter button to start: ')
     key = ord(getch())
     if key in to_press:
         start = time.time()
+    elif key in [47, 103, '\'g\'']:    # user wants to quit
+        return -1
 
     time.sleep(0.1)
     print('Press either the space bar or enter button to stop: ')
     key = ord(getch())
     if key in to_press:
         end = time.time()
+    elif key in [47, 103, '\'g\'']:    # user wants to quit
+        return -1
 
     solve_time = end - start
     return round(solve_time, 3)
